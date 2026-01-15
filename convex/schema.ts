@@ -10,4 +10,11 @@ export default defineSchema({
     status: v.union(v.literal("active"), v.literal("sent"), v.literal("dismissed")),
     privSchedulerId: v.optional(v.id("_scheduled_functions")),
   }),
+
+  subscribedDevices: defineTable({
+    deviceId: v.string(),
+    subscription: v.string(),
+    expiresAt: v.number(),
+    clerkId: v.string(),
+  }).index("userDevice", ["clerkId", "deviceId"]),
 });

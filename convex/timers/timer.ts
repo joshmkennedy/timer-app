@@ -23,7 +23,7 @@ export const newTimer = mutation({
     })
 
     const schedulerId = await ctx.scheduler.runAt(args.alertAt, internal.timers.timer.send, { id: timerId })
-    ctx.scheduler.runAfter(0, internal.timers.timer.setScheduledId, {timerId, schedulerId})
+    ctx.scheduler.runAfter(0, internal.timers.timer.setScheduledId, { timerId, schedulerId })
 
     return timerId
   }
@@ -41,6 +41,14 @@ export const send = internalMutation({
     await ctx.db.patch("timers", args.id, {
       status: "sent",
     })
+
+    const devices = await ctx.runQuery(internal.notifications.usersDevices, { clerkId: timer.clerkId })
+    const body = timer.title + " has gone off";
+    await Promise.all(devices.map(device => ctx.scheduler.runAfter(0, internal.notifications.sendNotification, {
+      clerkId: timer.clerkId,
+      deviceId: device.deviceId,
+      body,
+    })));
   }
 })
 

@@ -8,6 +8,8 @@
  * @module
  */
 
+import type * as node_notifications from "../node_notifications.js";
+import type * as notifications from "../notifications.js";
 import type * as timers_list from "../timers/list.js";
 import type * as timers_timer from "../timers/timer.js";
 
@@ -18,6 +20,8 @@ import type {
 } from "convex/server";
 
 declare const fullApi: ApiFromModules<{
+  node_notifications: typeof node_notifications;
+  notifications: typeof notifications;
   "timers/list": typeof timers_list;
   "timers/timer": typeof timers_timer;
 }>;
