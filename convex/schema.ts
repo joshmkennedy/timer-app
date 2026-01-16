@@ -9,7 +9,8 @@ export default defineSchema({
     clerkId: v.string(),
     status: v.union(v.literal("active"), v.literal("sent"), v.literal("dismissed")),
     privSchedulerId: v.optional(v.id("_scheduled_functions")),
-  }),
+  })
+  .index("userTimers", ["clerkId", "status"]),
 
   subscribedDevices: defineTable({
     deviceId: v.string(),

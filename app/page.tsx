@@ -7,7 +7,7 @@ export default function Page() {
   const { user } = useUser();
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background via-background to-muted/20">
+    <div className="min-h-screen bg-linear-to-b from-background via-background to-muted/20">
       <header className="absolute top-0 right-0 p-6">
         {user && (
           <Link href="/dashboard">
@@ -22,7 +22,7 @@ export default function Page() {
         <div className="flex flex-col items-center gap-8 text-center max-w-4xl">
           <div className="relative">
             <div className="absolute -inset-4 bg-primary/5 blur-3xl rounded-full" />
-            <h1 className="relative text-7xl sm:text-8xl md:text-9xl font-bold tracking-tight bg-gradient-to-br from-foreground via-foreground to-foreground/60 bg-clip-text text-transparent">
+            <h1 className="relative text-7xl sm:text-8xl md:text-9xl font-bold tracking-tight bg-linear-to-br from-foreground via-foreground to-foreground/60 bg-clip-text text-transparent">
               Timer
             </h1>
           </div>
@@ -35,32 +35,17 @@ export default function Page() {
           <div className="flex flex-col sm:flex-row gap-4 mt-4">
             {!user ? (
               <>
-                <Link href="/signin">
-                  <Button
-                    size="lg"
-                    className="text-base px-8 py-6 h-auto rounded-xl font-semibold shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all"
-                  >
+                <Link href="/signin" className="text-base px-8 py-6 h-auto rounded-xl font-semibold shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all bg-primary text-white">
                     Sign In
-                  </Button>
                 </Link>
-                <Link href="/signin">
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="text-base px-8 py-6 h-auto rounded-xl font-semibold"
-                  >
-                    Get Started
-                  </Button>
+                <Link href="/signin" className="text-base px-8 py-6 h-auto rounded-xl font-semibold border"
+                >
+                  Get Started
                 </Link>
               </>
             ) : (
-              <Link href="/dashboard">
-                <Button
-                  size="lg"
-                  className="text-base px-8 py-6 h-auto rounded-xl font-semibold shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all"
-                >
-                  Go to Dashboard
-                </Button>
+              <Link href="/dashboard" className="text-base px-8 py-6 h-auto rounded-xl font-semibold shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all bg-primary text-white">
+                Go to Dashboard
               </Link>
             )}
           </div>

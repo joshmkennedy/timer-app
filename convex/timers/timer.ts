@@ -64,3 +64,16 @@ export const setScheduledId = internalMutation({
   }
 })
 
+
+export const dismissTimer = mutation({
+  args: {timerId: v.id("timers")},
+  async handler(ctx, args) {
+    const timer = await ctx.db.get("timers", args.timerId)
+    if (!timer) {
+      return
+    }
+    await ctx.db.patch("timers", args.timerId, {
+      status: "dismissed",
+    })
+  }
+});

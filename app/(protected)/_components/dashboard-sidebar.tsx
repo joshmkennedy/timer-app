@@ -3,17 +3,35 @@ import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupConte
 import { UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 import { UserPreferenceToggle } from "./user-preference-toggle";
+import { NewTimerFormModal } from "./new-timer-form-modal";
 export function DashboardSidebar() {
   return <Sidebar
   >
 
     <SidebarHeader>
 
-      <h1>Timer App</h1>
+      <h1>
+        <Link href="/dashboard">
+          Timer App
+        </Link>
+      </h1>
 
     </SidebarHeader>
 
     <SidebarContent>
+
+      <SidebarGroup>
+        <SidebarContent>
+          <SidebarMenu>
+            <NewTimerFormModal>
+              <SidebarMenuButton className="flex items-center gap-2 py-4 rounded-md text-gray-700 hover:bg-gray-100 hover:text-gray-900">
+                New Timer
+              </SidebarMenuButton>
+            </NewTimerFormModal>
+
+          </SidebarMenu>
+        </SidebarContent>
+      </SidebarGroup>
 
       <SidebarGroup>
         <SidebarGroupLabel className="text-muted-foreground/85 text-xs ">Timers</SidebarGroupLabel>
@@ -21,7 +39,6 @@ export function DashboardSidebar() {
         <SidebarGroupContent>
 
           <SidebarMenu>
-
             {TimerMenuItems.map(({ href, label }) => <DashboardMenuItem key={href} href={href} label={label} />)}
 
           </SidebarMenu>

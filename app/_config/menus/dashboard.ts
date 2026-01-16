@@ -1,8 +1,7 @@
 export const TimerMenuItems = [
   {
-    href: "/dashboard/timers/new",
-    label: "New Timer",
-    icon: "plus",
+    href: "/dashboard/",
+    label: "Dashboard",
   },
 
   {
