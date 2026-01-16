@@ -12,7 +12,7 @@ export default function CompletedTimersPage() {
   return <div>
     <DashboardHeader>
       <div className="">
-        <h2 className="text-lg text-muted-foreground">Runnign Timers</h2>
+        <h2 className="text-lg text-muted-foreground">Running Timers</h2>
       </div>
     </DashboardHeader>
     <PageContentWrapper>
