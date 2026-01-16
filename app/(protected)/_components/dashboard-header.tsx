@@ -12,7 +12,7 @@ export function DashboardHeader({ children }: { children: React.ReactNode }) {
         <SidebarTrigger size={"lg"} />
         {children}
       </div>
-      <div className="max-w-1/4 text-center"><TimerClock /></div>
+      <div className="max-w-1/4 text-center text-xs md:text-base"><TimerClock /></div>
       <NewTimerFormModal>
         <Button size="icon-lg">
           <HugeiconsIcon icon={Plus} className="w-6 h-6" />
