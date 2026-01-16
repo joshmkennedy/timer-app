@@ -10,10 +10,10 @@ export function PreviewInbox({ alerts }: { alerts: TimerGroup['sent'] }) {
   return <div className="">
     <h3 className="font-bold text-muted-foreground mb-2">Inbox</h3>
     {!alerts || alerts.length === 0
-      ? <div className="h-96 w-full bg-muted/20 rounded-md border min-w-full flex justify-center items-center">
+      ? <div className="h-32 md:h-96 w-full bg-muted/20 rounded-md border min-w-full flex justify-center items-center">
           <span className="text-muted-foreground/50 text-lg font-bold">All Caught Up!</span>
         </div> : (
-        <ScrollArea className="h-96 w-full rounded-md border bg-muted/20">
+        <ScrollArea className="h-64 md:h-96 w-full rounded-md border bg-muted/20">
           <div className="flex flex-col gap-1 p-1">
             {alerts.sort((a, b) => (b.alertAt ?? 0) - (a.alertAt ?? 0)).map((timer) =>
               <DissmissableTimerItem key={timer._id} timer={timer} />)}

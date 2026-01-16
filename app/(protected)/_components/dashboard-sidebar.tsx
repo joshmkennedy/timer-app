@@ -1,11 +1,23 @@
+"use client"
 import { TimerMenuItems } from "@/app/_config/menus/dashboard";
-import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "@/components/ui/sidebar";
-import { UserButton } from "@clerk/nextjs";
+import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, useSidebar } from "@/components/ui/sidebar";
 import Link from "next/link";
 import { UserPreferenceToggle } from "./user-preference-toggle";
 import { NewTimerFormModal } from "./new-timer-form-modal";
+import { usePathname } from "next/navigation";
+import React from "react";
 export function DashboardSidebar() {
+  const {isMobile, setOpenMobile} = useSidebar();
+  const pathname = usePathname();
+
+  React.useEffect(() => {
+    if (isMobile) {
+      setOpenMobile(false);
+    }
+  }, [isMobile, pathname, setOpenMobile]);
+
   return <Sidebar
+    
   >
 
     <SidebarHeader>
