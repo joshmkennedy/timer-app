@@ -47,7 +47,7 @@ export function BaseNewTimerForm({ onSubmit }: TimerFormProps) {
       <NaturalLanguageDatePicker onUpdate={(date) => setAlertAtRaw(date.getTime())} label="For When?"/>
       <div className="gap-2 flex flex-col">
         <Label className="font-medium h-full text-muted-foreground text-base">Message</Label>
-        <Input type="text" name="title" className="p-4 placeholder:text-muted-foreground/50 rounded-md bg-background h-full" placeholder="Title" />
+        <Input type="text" name="title" className="p-4 placeholder:text-muted-foreground/50 rounded-md bg-background h-full text-base sm:text-sm" placeholder="Title" />
       </div>
     </div>
     <div className="flex flex-col gap-4 py-0">

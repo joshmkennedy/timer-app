@@ -36,7 +36,7 @@ export function NaturalLanguageDatePicker({ onUpdate, label }: NaturalLanguageDa
         </div>
       </div>
       <Input
-        className="p-4 placeholder:text-muted-foreground/50 rounded-md bg-background h-full border"
+        className="p-4 placeholder:text-muted-foreground/50 rounded-md text-base sm:text-sm bg-background h-full border"
         type="text"
         placeholder="On Friday at 3"
         onChange={handleChange}
