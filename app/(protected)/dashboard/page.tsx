@@ -29,7 +29,7 @@ export default function Page() {
           <PreviewInbox alerts={timerGroups.sent} />
         </div>
         <div className="flex-1 max-w-full lg:max-w-1/3">
-          {timerGroups.active.length > 0
+          {timerGroups.active?.length > 0
             ? <PreviewActiveTable alerts={timerGroups.active} />
             : <NewTimerForm />
           }

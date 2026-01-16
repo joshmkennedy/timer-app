@@ -15,7 +15,7 @@ export function useDashboardTimers() {
   const timers = useQuery(api.timers.list.default, {status:["sent", "active"]});
 
   return { 
-    timerGroups: (!timers || !timers.length) 
+    timerGroups: (!timers || !timers?.length) 
         ? defaultTimerGroup 
         : Object.groupBy(timers, (timer) => timer.status) as TimerGroup,
     allTimers: timers,
